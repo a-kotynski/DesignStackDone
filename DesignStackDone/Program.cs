@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace DesignStack
 {
-    public class Stack //: Object
+    public class Stack
     {
-        //public List<object>? StackList { get; set; }
         public ArrayList StackList = new ArrayList();
         public object? LastObject { get; set; }
         public void Push(object obj)
@@ -18,7 +17,7 @@ namespace DesignStack
             {
                 if (obj == null)
                 {
-                    throw new InvalidOperationException("You can not push \"nothing\" to the Stack");
+                    throw new InvalidOperationException("It's a NULL.");
                 }
                 else
                 {
@@ -35,22 +34,12 @@ namespace DesignStack
         {
             StackList.Remove(LastObject);
         }
-        public object Pop()
+        public object? Pop()
         {
-            //try
-            //{
-            //    return StackList[StackList.Count - 1];
-            //    //StackList.RemoveAt(StackList.Count - 1);
-            //}
-            //catch (InvalidOperationException)
-            //{
-
-            //    throw;
-            //}
             if (StackList.Count != 0)
             {
                 LastObject = StackList[StackList.Count - 1];
-                GetObject();//StackList.Remove(Object); //methods should do only one thing
+                GetObject();
             }
             else
             {
