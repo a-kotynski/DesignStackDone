@@ -31,11 +31,11 @@ namespace DesignStack
                 throw;
             }
         }
-        public void GetObject()
+        public void GetLastObject()
         {
             StackList.Remove(LastObject);
         }
-        public object Pop()
+        public object? Pop()
         {
             //try
             //{
@@ -50,7 +50,7 @@ namespace DesignStack
             if (StackList.Count != 0)
             {
                 LastObject = StackList[StackList.Count - 1];
-                GetObject();//StackList.Remove(Object); //methods should do only one thing
+                GetLastObject();//StackList.Remove(Object); //methods should do only one thing
             }
             else
             {
