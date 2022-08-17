@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DesignStack
 {
-    public class Stack : Object
+    public class Stack //: Object
     {
         //public List<object>? StackList { get; set; }
         public ArrayList StackList = new ArrayList();
-        public object Object { get; set; }
+        public object? LastObject { get; set; }
         public void Push(object obj)
         {
             try
@@ -31,6 +31,10 @@ namespace DesignStack
                 throw;
             }
         }
+        public void GetObject()
+        {
+            StackList.Remove(LastObject);
+        }
         public object Pop()
         {
             //try
@@ -45,14 +49,14 @@ namespace DesignStack
             //}
             if (StackList.Count != 0)
             {
-                Object = StackList[StackList.Count - 1];
-                StackList.Remove(Object);
+                LastObject = StackList[StackList.Count - 1];
+                GetObject();//StackList.Remove(Object); //methods should do only one thing
             }
             else
             {
                 throw new InvalidOperationException("Can't remove anything.");
             }
-            return Object;
+            return LastObject;
         }
         public void Clear()
         {
